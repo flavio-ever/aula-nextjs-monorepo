@@ -1,5 +1,9 @@
+import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
+import { HeaderSkeleton } from "./_components/skeletons";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,6 +15,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
 
 export const metadata: Metadata = {
   title: "Aula Next.JS 15+",
@@ -25,9 +30,13 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background`}
       >
-        {children}
+        <Suspense fallback={<HeaderSkeleton />}>
+          <Header />
+        </Suspense>
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
