@@ -1,20 +1,15 @@
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import { HeaderSkeleton } from "./_components/skeletons";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const inter = Inter({
+//   variable: "--font-inter",
+//   subsets: ["latin"],
+// });
 
 
 export const metadata: Metadata = {
@@ -30,7 +25,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background`}
+       className={`antialiased min-h-screen bg-background`}
+        // className={`${inter.variable} antialiased min-h-screen bg-background`}
       >
         <Suspense fallback={<HeaderSkeleton />}>
           <Header />

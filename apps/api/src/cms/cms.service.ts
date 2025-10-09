@@ -4,12 +4,7 @@ import { Injectable, Logger } from '@nestjs/common';
 export class CmsService {
   private readonly logger = new Logger(CmsService.name);
 
-  async getNavigationData(delayMs = 0) {
-    this.logger.log(`getNavigationData API iniciando... (delay: ${delayMs}ms)`);
-    if (delayMs > 0) {
-      await new Promise((resolve) => setTimeout(resolve, delayMs));
-    }
-    this.logger.log('getNavigationData API concluída!');
+  getNavigationData() {
     const navigationData = [
       {
         title: 'Serviços',
@@ -74,12 +69,7 @@ export class CmsService {
     };
   }
 
-  async getBannerData(delayMs = 0) {
-    this.logger.log(`getBannerData API iniciando... (delay: ${delayMs}ms)`);
-    if (delayMs > 0) {
-      await new Promise((resolve) => setTimeout(resolve, delayMs));
-    }
-    this.logger.log('getBannerData API concluída!');
+  getBannerData() {
     const banners = [
       {
         id: 1,
@@ -119,13 +109,7 @@ export class CmsService {
     return { banners };
   }
 
-  async getServicesData(delayMs = 0) {
-    this.logger.log(`getServicesData API iniciando... (delay: ${delayMs}ms)`);
-    if (delayMs > 0) {
-      await new Promise((resolve) => setTimeout(resolve, delayMs));
-    }
-    this.logger.log('getServicesData API concluída!');
-
+  getServicesData() {
     const services = [
       {
         id: 'extrato',
