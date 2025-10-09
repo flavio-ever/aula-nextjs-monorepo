@@ -6,11 +6,11 @@ export async function getNavigationData(options?: {
   tags?: string[];
 }): Promise<NavigationData> {
   try {
-    const endpoint = `/cms/navigation?delay=4000`;
+    const endpoint = `/cms/navigation?delayMs=4000`;
 
     const data = await apiClient.get<NavigationData>(endpoint, {
       next: {
-        revalidate: options?.revalidate ?? 10,
+        // revalidate: options?.revalidate ?? 10,
         tags: options?.tags ?? ["navigation"],
       },
     });
@@ -60,11 +60,11 @@ export async function getBannerData(options?: {
   tags?: string[];
 }): Promise<BannerData> {
   try {
-    const endpoint = `/cms/banner?delay=10000`;
+    const endpoint = `/cms/banner?delayMs=10000`;
 
     const data = await apiClient.get<BannerData>(endpoint, {
       next: {
-        revalidate: options?.revalidate ?? 60, // Cache banner por 1 minuto
+        // revalidate: options?.revalidate ?? 60, // Cache banner por 1 minuto
         tags: options?.tags ?? ["banner"],
       },
     });
@@ -96,11 +96,11 @@ export async function getServicesData(options?: {
   tags?: string[];
 }): Promise<ServicesData> {
   try {
-    const endpoint = `/cms/services?delay=12000`;
+    const endpoint = `/cms/services?delayMs=12000`;
 
     const data = await apiClient.get<ServicesData>(endpoint, {
       next: {
-        revalidate: options?.revalidate ?? 30, // Cache services por 30 segundos
+        // revalidate: options?.revalidate ?? 30, // Cache services por 30 segundos
         tags: options?.tags ?? ["services"],
       },
     });

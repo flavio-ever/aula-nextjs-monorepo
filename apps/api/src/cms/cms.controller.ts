@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { CmsService } from './cms.service';
 
 @Controller('cms')
@@ -6,20 +6,17 @@ export class CmsController {
   constructor(private readonly cmsService: CmsService) {}
 
   @Get('navigation')
-  async getNavigation(@Query('delay') delay?: string) {
-    const delayMs = delay ? parseInt(delay, 10) : 0;
-    return this.cmsService.getNavigationData(delayMs);
+  getNavigation() {
+    return this.cmsService.getNavigationData();
   }
 
   @Get('banner')
-  async getBanner(@Query('delay') delay?: string) {
-    const delayMs = delay ? parseInt(delay, 10) : 0;
-    return this.cmsService.getBannerData(delayMs);
+  getBanner() {
+    return this.cmsService.getBannerData();
   }
 
   @Get('services')
-  async getServices(@Query('delay') delay?: string) {
-    const delayMs = delay ? parseInt(delay, 10) : 0;
-    return this.cmsService.getServicesData(delayMs);
+  getServices() {
+    return this.cmsService.getServicesData();
   }
 }

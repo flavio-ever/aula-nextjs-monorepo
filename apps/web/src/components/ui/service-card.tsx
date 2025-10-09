@@ -1,26 +1,33 @@
 "use client";
 
-import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { getIconByName } from "@/lib/icon-map";
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: string;
   href: string;
   color?: string;
   className?: string;
 }
 
+export function Icon({ name }: { name: string }) {
+  const IconComponent = getIconByName(name);
+  return <IconComponent />;
+}
+
 export function ServiceCard({
   title,
   description,
-  icon: Icon,
+  icon,
   href,
   color = 'bg-primary',
   className
 }: ServiceCardProps) {
+
+  
   // Extract the color value for the hover border
   const colorMap: { [key: string]: string } = {
     'bg-red-500': '#ef4444',
@@ -53,12 +60,12 @@ export function ServiceCard({
     >
       <div className="flex items-center gap-4">
         {/* Icon */}
-        <div className={cn(
-          "w-12 h-12 rounded-lg flex items-center justify-center text-white flex-shrink-0",
-          color
-        )}>
-          <Icon className="w-6 h-6" />
-        </div>
+           <div className={cn(
+             "w-12 h-12 rounded-lg flex items-center justify-center text-white flex-shrink-0",
+             color
+           )}>
+             <Icon name={icon} />
+           </div>
         
         {/* Content */}
         <div className="flex-1 min-w-0">
