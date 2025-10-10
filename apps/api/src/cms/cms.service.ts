@@ -73,7 +73,7 @@ export class CmsService {
     const banners = [
       {
         id: 1,
-        title: 'Portal do Cliente TechStore',
+        title: 'Portal do Cliente',
         subtitle: 'Acesse todos os serviços em um só lugar',
         description:
           'Gerencie sua conta, consulte extratos, negocie débitos e muito mais com praticidade e segurança.',

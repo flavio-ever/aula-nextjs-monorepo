@@ -49,6 +49,7 @@ export async function getNavigationData(options?: {
       mainNav: [
         { title: "FAQ", href: "/faq" },
         { title: "Contato", href: "/contato" },
+        { title: "Exemplos", href: "/examples" },
       ],
       userMenu: [{ title: "Meu Perfil", href: "/perfil", icon: "User" }],
     };
