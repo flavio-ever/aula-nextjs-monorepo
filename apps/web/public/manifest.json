@@ -1,11 +1,11 @@
 {
   "name": "Aula Next.JS 15+",
-  "short_name": "Next.JS 15+",
+  "short_name": "Aula Next.JS 15+",
   "description": "Demonstração de recursos do Next.js 15+ para apresentação",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#ffffff",
   "orientation": "portrait-primary",
   "icons": [
     {
