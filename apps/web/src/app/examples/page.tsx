@@ -87,12 +87,12 @@ export default function ExamplesPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {examples.map((example) => {
+        {examples.map((example, index) => {
           const IconComponent = example.icon;
 
           return (
             <Card
-              key={example.href}
+              key={`${example.href}-${index}`}
               className="group hover:shadow-lg transition-all duration-200"
             >
               <CardHeader>
@@ -112,9 +112,9 @@ export default function ExamplesPage() {
               <CardContent>
                 <div className="space-y-4">
                   <ul className="space-y-1">
-                    {example.features.map((feature, index) => (
+                    {example.features.map((feature, featureIndex) => (
                       <li
-                        key={index}
+                        key={`${index}-${featureIndex}`}
                         className="flex items-center gap-2 text-sm text-muted-foreground"
                       >
                         <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
