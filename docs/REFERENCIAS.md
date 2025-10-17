@@ -137,11 +137,10 @@
 
 ### npm Trends
 - **Next.js vs Competitors**: https://npmtrends.com/gatsby-vs-next-vs-nuxt-vs-remix
-- **Download Stats**: 6M+ downloads/week
 
 ### GitHub
 - **Next.js Repository**: https://github.com/vercel/next.js
--  **8M+ downloads/semana** (npm)
+-  **13M+ downloads/semana** (npm)
 - **135k+ stars** no GitHub
 - **Usado por**: Netflix, TikTok, Twitch, Nike, Notion & cases brasileiros
 - **Criado e mantido por**: Vercel (empresa de US$ 9.3B valuation)
