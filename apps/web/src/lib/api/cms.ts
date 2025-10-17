@@ -6,18 +6,21 @@ export async function getNavigationData(options?: {
   tags?: string[];
 }): Promise<NavigationData> {
   try {
-    const endpoint = `/cms/navigation?delayMs=4000`;
+    const isDev = process.env.NODE_ENV === "development";
+    const endpoint = isDev ? `/cms/navigation?delayMs=4000` : `/cms/navigation`;
 
     const data = await apiClient.get<NavigationData>(endpoint, {
       next: {
-        // revalidate: options?.revalidate ?? 10,
+        revalidate: options?.revalidate ?? 0,
         tags: options?.tags ?? ["navigation"],
       },
+      cache: "no-store",
     });
 
     return data;
   } catch (error) {
     console.error("Failed to fetch navigation from NestJS:", error);
+    console.log("Using fallback navigation data with all services");
 
     // Fallback data
     return {
@@ -26,21 +29,39 @@ export async function getNavigationData(options?: {
           title: "Serviços",
           items: [
             {
+              title: "Consultar Extrato",
+              href: "/extrato",
+              description: "Veja todas suas movimentações financeiras em tempo real",
+              icon: "FileText",
+            },
+            {
+              title: "Quitação de Débitos",
+              href: "/debitos",
+              description: "Negocie e quite seus débitos pendentes com desconto",
+              icon: "CreditCard",
+            },
+            {
+              title: "Resgate de Pontos",
+              href: "/beneficios",
+              description: "Troque seus pontos por produtos e descontos exclusivos",
+              icon: "Gift",
+            },
+            {
+              title: "Recuperar Senha",
+              href: "/recuperar-senha",
+              description: "Redefina sua senha de acesso de forma segura",
+              icon: "Key",
+            },
+            {
               title: "Central de Ajuda",
               href: "/faq",
-              description: "Encontre respostas (fallback)",
+              description: "Encontre respostas para suas dúvidas mais frequentes",
               icon: "HelpCircle",
             },
             {
-              title: "Contato",
-              href: "/contato",
-              description: "Entre em contato (fallback)",
-              icon: "Phone",
-            },
-            {
-              title: "Minha Conta",
+              title: "Meus Dados",
               href: "/perfil",
-              description: "Gerencie sua conta (fallback)",
+              description: "Atualize suas informações pessoais e preferências",
               icon: "User",
             },
           ],
@@ -49,9 +70,12 @@ export async function getNavigationData(options?: {
       mainNav: [
         { title: "FAQ", href: "/faq" },
         { title: "Contato", href: "/contato" },
-        { title: "Exemplos", href: "/examples" },
+        { title: "Minha Conta", href: "/perfil" },
       ],
-      userMenu: [{ title: "Meu Perfil", href: "/perfil", icon: "User" }],
+      userMenu: [
+        { title: "Notificações", href: "/notificacoes", icon: "Bell" },
+        { title: "Meu Perfil", href: "/perfil", icon: "User" },
+      ],
     };
   }
 }
@@ -61,11 +85,12 @@ export async function getBannerData(options?: {
   tags?: string[];
 }): Promise<BannerData> {
   try {
-    const endpoint = `/cms/banner?delayMs=10000`;
+    const isDev = process.env.NODE_ENV === "development";
+    const endpoint = isDev ? `/cms/banner?delayMs=10000` : `/cms/banner`;
 
     const data = await apiClient.get<BannerData>(endpoint, {
       next: {
-        // revalidate: options?.revalidate ?? 60, // Cache banner por 1 minuto
+        revalidate: options?.revalidate ?? 60,
         tags: options?.tags ?? ["banner"],
       },
     });
@@ -97,11 +122,12 @@ export async function getServicesData(options?: {
   tags?: string[];
 }): Promise<ServicesData> {
   try {
-    const endpoint = `/cms/services?delayMs=12000`;
+    const isDev = process.env.NODE_ENV === "development";
+    const endpoint = isDev ? `/cms/services?delayMs=12000` : `/cms/services`;
 
     const data = await apiClient.get<ServicesData>(endpoint, {
       next: {
-        // revalidate: options?.revalidate ?? 30, // Cache services por 30 segundos
+        revalidate: options?.revalidate ?? 60,
         tags: options?.tags ?? ["services"],
       },
     });
