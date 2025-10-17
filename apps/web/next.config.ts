@@ -1,28 +1,14 @@
-import type { NextConfig } from "next";
 import withPWAInit from "@ducanh2912/next-pwa";
+import type { NextConfig } from "next";
 
 const withPWA = withPWAInit({
   dest: "public",
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
   reloadOnOnline: true,
-  disable: process.env.NEXT_PUBLIC_DISABLE_PWA === "true",
+  disable: process.env.NODE_ENV === "development",
   workboxOptions: {
     disableDevLogs: true,
-    runtimeCaching: [
-      {
-        urlPattern: /^https?:\/\/.*\/cms\/.*/i,
-        handler: "NetworkFirst",
-        options: {
-          cacheName: "api-cache",
-          expiration: {
-            maxEntries: 32,
-            maxAgeSeconds: 60,
-          },
-          networkTimeoutSeconds: 10,
-        },
-      },
-    ],
   },
   fallbacks: {
     document: "/offline",
