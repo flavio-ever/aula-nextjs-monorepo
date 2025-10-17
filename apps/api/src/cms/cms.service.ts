@@ -11,39 +11,39 @@ export class CmsService {
         items: [
           {
             title: 'Consultar Extrato',
-            href: '/extrato',
+            href: '/examples',
             description:
               'Veja todas suas movimentações financeiras em tempo real',
             icon: 'FileText',
           },
           {
             title: 'Quitação de Débitos',
-            href: '/debitos',
+            href: '/examples',
             description: 'Negocie e quite seus débitos pendentes com desconto',
             icon: 'CreditCard',
           },
           {
             title: 'Resgate de Pontos',
-            href: '/beneficios',
+            href: '/examples',
             description:
               'Troque seus pontos por produtos e descontos exclusivos',
             icon: 'Gift',
           },
           {
             title: 'Recuperar Senha',
-            href: '/recuperar-senha',
+            href: '/examples',
             description: 'Redefina sua senha de acesso de forma segura',
             icon: 'Key',
           },
           {
             title: 'Central de Ajuda',
-            href: '/faq',
+            href: '/examples',
             description: 'Encontre respostas para suas dúvidas mais frequentes',
             icon: 'HelpCircle',
           },
           {
             title: 'Meus Dados',
-            href: '/perfil',
+            href: '/examples',
             description: 'Atualize suas informações pessoais e preferências',
             icon: 'User',
           },
@@ -52,14 +52,14 @@ export class CmsService {
     ];
 
     const mainNav = [
-      { title: 'FAQ', href: '/faq' },
-      { title: 'Contato', href: '/contato' },
-      { title: 'Minha Conta', href: '/perfil' },
+      { title: 'FAQ', href: '/examples' },
+      { title: 'Contato', href: '/examples' },
+      { title: 'Minha Conta', href: '/examples' },
     ];
 
     const userMenu = [
-      { title: 'Notificações', href: '/notificacoes', icon: 'Bell' },
-      { title: 'Meu Perfil', href: '/perfil', icon: 'User' },
+      { title: 'Notificações', href: '/examples', icon: 'Bell' },
+      { title: 'Meu Perfil', href: '/examples', icon: 'User' },
     ];
 
     return {
@@ -118,7 +118,7 @@ export class CmsService {
           'Acesse seu histórico completo de movimentações financeiras com detalhes e filtros avançados',
         icon: 'FileText',
         category: 'Financeiro',
-        href: '/extrato',
+        href: '/examples',
         featured: true,
         status: 'active',
       },
@@ -129,7 +129,7 @@ export class CmsService {
           'Negocie e quite seus débitos pendentes com condições especiais e descontos exclusivos',
         icon: 'CreditCard',
         category: 'Financeiro',
-        href: '/debitos',
+        href: '/examples',
         featured: true,
         status: 'active',
       },
@@ -140,7 +140,7 @@ export class CmsService {
           'Troque seus pontos acumulados por produtos, serviços e descontos em nossa loja de benefícios',
         icon: 'Gift',
         category: 'Benefícios',
-        href: '/beneficios',
+        href: '/examples',
         featured: true,
         status: 'active',
       },
@@ -151,7 +151,7 @@ export class CmsService {
           'Atualize suas informações pessoais, endereços e preferências de comunicação',
         icon: 'User',
         category: 'Conta',
-        href: '/perfil',
+        href: '/examples',
         featured: false,
         status: 'active',
       },
@@ -162,7 +162,7 @@ export class CmsService {
           'Redefina sua senha de acesso de forma rápida e segura através do seu email ou SMS',
         icon: 'Key',
         category: 'Segurança',
-        href: '/recuperar-senha',
+        href: '/examples',
         featured: false,
         status: 'active',
       },
@@ -173,7 +173,7 @@ export class CmsService {
           'Encontre respostas para suas dúvidas mais frequentes e tutoriais detalhados',
         icon: 'HelpCircle',
         category: 'Suporte',
-        href: '/faq',
+        href: '/examples',
         featured: false,
         status: 'active',
       },
